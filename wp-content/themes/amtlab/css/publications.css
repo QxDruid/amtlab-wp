@@ -1,0 +1,38 @@
+.toggle {
+    display: none;
+}
+
+.dis_header {
+    cursor: pointer;
+    background: #CCCCCC;
+    border-radius: 5px;
+    padding: 5px;
+
+    font-size: 18px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dis_header:hover {
+    background: #bbb;
+}
+
+
+.publications-container {
+    display: grid;
+    gap: 5px;
+}
+
+.div_body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out, padding 0.3s ease-in-out;
+    padding-left: 30px;
+    opacity: 0;
+}
+
+.toggle:checked + .dis_header + .div_body {
+    max-height: 1000px; /* Достаточно большое значение */
+    opacity: 1;
+    padding-top: 10px;
+}

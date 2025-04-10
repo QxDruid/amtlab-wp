@@ -1,0 +1,76 @@
+/* Стили для списка новостей */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.news-item {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.news-item .news-image {
+    margin-bottom: 10px;
+}
+
+.news-item .news-image img {
+    max-width: 100%;   /* Убедимся, что изображение не выходит за пределы контейнера */
+    height: auto;      /* Сохраняем пропорции изображения */
+}
+
+.view-all-news a {
+    color: #294c94;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.view-all-news a:hover {
+    text-decoration: underline;
+}
+
+/* Общие стили для контейнера архива */
+.archive-news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Светлый фон для всего контейнера */
+}
+
+/* Заголовок страницы архива */
+.archive-news-container h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.news-item {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd; /* Добавьте, если хотите рамку вокруг каждой новости */
+}
+
+.news-photo {
+    max-width: 100%; /* Ограничивает ширину изображения */
+    overflow: hidden; /* Обрезает лишнее изображение */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.news-photo img {
+    width: 100%; /* Устанавливает изображение на 100% ширины контейнера */
+    height: auto; /* Сохраняет пропорции изображения */
+    display: block; /* Убирает отступы и лишние пробелы */
+}
+
+.news-content {
+    font-size: 12px; /* Размер шрифта для контента */
+    line-height: 1; /* Межстрочный интервал для лучшей читаемости */
+    text-align: justify; /* Выравнивание текста по ширине */
+    word-wrap: break-word; /* Перенос слов, если они длинные */
+}
