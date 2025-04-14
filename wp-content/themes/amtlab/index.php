@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Main */
+/* Template Name: Главная */
 get_header();  // Подключает шапку темы
 ?>
 

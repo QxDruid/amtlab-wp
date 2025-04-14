@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Contacts
+ * Template Name: Контакты
  * Description: A template for the contacts page
  */
 
