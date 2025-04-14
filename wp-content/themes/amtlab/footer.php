@@ -4,8 +4,6 @@
 
 <?php include get_template_directory() . '/patterns/dynamic_news.php'; ?>
 
-</div>
-
 <div class="outer">
 	<div id="footer">Copyright &copy; <a href="/"><strong>Лаборатория новых материалов и перспективных технологий</strong></a></div>
 		<center>

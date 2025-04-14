@@ -140,12 +140,13 @@ a:hover {
 }
 #navcontainer {
     display: block;
-    height: 65px;
     margin-bottom: 0;
     overflow: hidden;
     padding: 0;
+    padding-left: 10px;
     text-shadow: 0 1px 0 #333333;
     width: 980px;
+    background-color: white;
 }
 #navcontainer .current-cat a {
     background: url("images/tab.png"/*tpa=http://lcr.tsu.ru/wp-content/themes/HostingReview/images/tab.png*/) repeat-x scroll 0 0 transparent;
@@ -154,6 +155,7 @@ a:hover {
 }
 #content {
     padding-bottom: 15px;
+    padding-right: 15px;
 }
 pre {
     overflow: auto;
