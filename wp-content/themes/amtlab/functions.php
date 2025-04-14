@@ -1,23 +1,137 @@
 <?php
 function mytheme_enqueue_styles() {
-    wp_enqueue_style('main-style', get_stylesheet_uri());
-    wp_enqueue_style('staff-page-style', get_template_directory_uri() . '/css/staff.css');
-    wp_enqueue_style('gallery-style', get_template_directory_uri() . '/css/gallery.css');
-
-    wp_enqueue_style('publications-style', get_template_directory_uri() . '/css/publications.css');
-
-    wp_enqueue_style('menumatic-style', get_template_directory_uri() . '/css/menu/MenuMatic.css'); 
-    wp_enqueue_style('screen-style', get_template_directory_uri() . '/css/screen.css'); 
-    wp_enqueue_style('style-style', get_template_directory_uri() . '/css/style.css'); 
-    wp_enqueue_style('slider-style', get_template_directory_uri() . '/css/slider.css'); 
-    wp_enqueue_style('nivo-slider-style', get_template_directory_uri() . '/css/nivo-slider.css');
-    wp_enqueue_style('nggallery-slider-style', get_template_directory_uri() . '/css/plugins/nggallery.css');
-    wp_enqueue_style('filebase-slider-style', get_template_directory_uri() . '/css/plugins/wp-filebase.css');
-    wp_enqueue_style('shutter-slider-style', get_template_directory_uri() . '/css/plugins/shutter-reloaded.css');
-    wp_enqueue_style('popup-slider-style', get_template_directory_uri() . '/css/plugins/popup.css');
-    wp_enqueue_style('event-list-slider-style', get_template_directory_uri() . '/css/plugins/event-list.css');
+    // Main theme styles
+    wp_enqueue_style('main-style', get_stylesheet_uri(), array(), '1.0.0');
+    wp_enqueue_style('screen-style', get_template_directory_uri() . '/css/screen.css', array('main-style'), '1.0.0');
+    wp_enqueue_style('style-style', get_template_directory_uri() . '/css/style.css', array('screen-style'), '1.0.0');
+    
+    // Slider styles
+    wp_enqueue_style('nivo-slider-style', get_template_directory_uri() . '/css/nivo-slider.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('slider-style', get_template_directory_uri() . '/css/slider.css', array('nivo-slider-style'), '1.0.0');
+    
+    // Page-specific styles
+    wp_enqueue_style('staff-page-style', get_template_directory_uri() . '/css/staff.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('gallery-style', get_template_directory_uri() . '/css/gallery.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('publications-style', get_template_directory_uri() . '/css/publications.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('news-style', get_template_directory_uri() . '/css/news.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('allnews-style', get_template_directory_uri() . '/css/allnews.css', array('style-style'), '1.0.0');
+    
+    // Menu styles
+    wp_enqueue_style('menumatic-style', get_template_directory_uri() . '/css/menu/MenuMatic.css', array('style-style'), '1.0.0');
+    
+    // Plugin styles
+    wp_enqueue_style('nggallery-style', get_template_directory_uri() . '/css/plugins/nggallery.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('filebase-style', get_template_directory_uri() . '/css/plugins/wp-filebase.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('shutter-style', get_template_directory_uri() . '/css/plugins/shutter-reloaded.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('popup-style', get_template_directory_uri() . '/css/plugins/popup.css', array('style-style'), '1.0.0');
+    wp_enqueue_style('event-list-style', get_template_directory_uri() . '/css/plugins/event-list.css', array('style-style'), '1.0.0');
+    
+    // Print and IE specific styles
+    wp_enqueue_style('print-style', get_template_directory_uri() . '/css/print.css', array('style-style'), '1.0.0', 'print');
+    wp_enqueue_style('ie-style', get_template_directory_uri() . '/css/ie.css', array('style-style'), '1.0.0');
+    wp_style_add_data('ie-style', 'conditional', 'IE');
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
+
+function mytheme_enqueue_scripts() {
+    // jQuery and core scripts
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', get_template_directory_uri() . '/js/jquery/jquery.js-ver=1.7.1', array(), '1.7.1', false);
+    wp_enqueue_script('jquery');
+    
+    // Slider scripts
+    wp_enqueue_script('nivo-slider-script', get_template_directory_uri() . '/js/jquery.nivo.slider.pack.js', array('jquery'), '1.0.0', false);
+    
+    // Shutter reloaded script
+    wp_enqueue_script('shutter-script', get_template_directory_uri() . '/js/shutter-reloaded.js-ver=1.3.3', array('jquery'), '1.3.3', true);
+    
+    // Slider scripts
+    wp_enqueue_script('cycle-script', get_template_directory_uri() . '/js/jquery.cycle.all.min.js-ver=2.9995', array('jquery'), '2.9995', true);
+    wp_enqueue_script('ngg-slideshow-script', get_template_directory_uri() . '/js/ngg.slideshow.min.js-ver=1.06', array('jquery'), '1.06', true);
+    
+    // UI enhancement scripts
+    wp_enqueue_script('popup-script', get_template_directory_uri() . '/js/popup.js-ver=1.7', array('jquery'), '1.7', true);
+    wp_enqueue_script('swfobject-script', get_template_directory_uri() . '/js/swfobject.js-ver=1.7', array(), '1.7', true);
+    
+    // MooTools and Menu scripts
+    wp_enqueue_script('mootools-core', get_template_directory_uri() . '/js/menu/mootools-1.2.5-core-yc.js', array(), '1.2.5', true);
+    wp_enqueue_script('menumatic-script', get_template_directory_uri() . '/js/menu/MenuMatic_0.68.3.js', array('mootools-core'), '0.68.3', true);
+    
+    // Media and player scripts
+    wp_enqueue_script('jwplayer-script', get_template_directory_uri() . '/js/jwplayer.js', array(), '1.0.0', true);
+    
+    // UI enhancement scripts
+    wp_enqueue_script('lcr-script', get_template_directory_uri() . '/js/jquery.lcr.js', array('jquery'), '1.0.0', true);
+    
+    // Browser compatibility scripts
+    wp_enqueue_script('pngfix-script', get_template_directory_uri() . '/js/pngfix.js', array(), '1.0.0', true);
+
+    // Inline scripts
+    $shutter_settings = array(
+        'msgLoading' => 'З А Г Р У З К А',
+        'msgClose' => 'Закрыть',
+        'imageCount' => '1'
+    );
+    wp_localize_script('shutter-script', 'shutterSettings', $shutter_settings);
+
+    $vvq_settings = array(
+        'flashvars' => array(),
+        'params' => array(
+            'wmode' => 'opaque',
+            'allowfullscreen' => 'true',
+            'allowscriptaccess' => 'always'
+        ),
+        'attributes' => array(),
+        'expressinstall' => get_template_directory_uri() . '/js/expressinstall.swf'
+    );
+    wp_localize_script('swfobject-script', 'vvqSettings', $vvq_settings);
+}
+add_action('wp_enqueue_scripts', 'mytheme_enqueue_scripts');
+
+// Add inline script for MenuMatic initialization
+function mytheme_add_inline_scripts() {
+    ?>
+    <script type="text/javascript">
+        window.addEvent('domready', function() {
+            var myMenu = new MenuMatic();
+        });
+    </script>
+    <?php
+}
+add_action('wp_footer', 'mytheme_add_inline_scripts');
+
+// Инициализация слайдера
+function mytheme_init_slider() {
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            // Инициализация Nivo слайдера
+            if ($('#slider').length) {
+                $('#slider').nivoSlider({
+                    effect: 'fade',
+                    animSpeed: 500,
+                    pauseTime: 3000,
+                    directionNav: true,
+                    controlNav: true,
+                    pauseOnHover: true,
+                    keyboardNav: false,
+                    controlNavThumbs: false,
+                    manualAdvance: false,
+                    prevText: 'Prev',
+                    nextText: 'Next',
+                    randomStart: false,
+                    beforeChange: function(){},
+                    afterChange: function(){},
+                    slideshowEnd: function(){},
+                    lastSlide: function(){},
+                    afterLoad: function(){}
+                });
+            }
+        });
+    </script>
+    <?php
+}
+add_action('wp_footer', 'mytheme_init_slider');
 
 function create_news_post_type() {
     $args = array(
@@ -115,6 +229,13 @@ function restrict_pages_menu() {
 }
 add_action('admin_menu', 'restrict_pages_menu', 999);
 
+// Регистрация меню
+function mytheme_register_menus() {
+    register_nav_menus(array(
+        'primary' => __('Основное меню', 'amtlab'),
+    ));
+}
+add_action('init', 'mytheme_register_menus');
 
 require_once get_template_directory() . '/acf-import.php';
 ?>
