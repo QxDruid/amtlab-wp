@@ -914,14 +914,59 @@ p { text-indent: 25px; }
 }
 
 #nav a {
-    color: #ff3366;
+    color: #4a90e2;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
     line-height: 2;
     padding: 5px 0;
     position: relative;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     display: inline-block;
     vertical-align: middle;
+}
+
+/* Hover effect */
+#nav a:hover {
+    color: #2c5282;
+}
+
+#nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #2c5282;
+    left: 50%;
+    bottom: 0;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+#nav a:hover:after {
+    width: 100%;
+}
+
+/* Current page highlighting */
+#nav .current-menu-item a,
+#nav .current_page_item a {
+    color: #1a365d;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    #nav {
+        padding-left: 20px;
+    }
+    
+    #nav li:not(:first-child):before {
+        margin: 0 10px;
+    }
+    
+    #nav .current-menu-item a,
+    #nav .current_page_item a {
+        font-size: 16px;
+    }
 }
