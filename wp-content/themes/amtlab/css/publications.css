@@ -21,6 +21,7 @@
 .publications-container {
     display: grid;
     gap: 5px;
+    padding-top: 20px;
 }
 
 .div_body {

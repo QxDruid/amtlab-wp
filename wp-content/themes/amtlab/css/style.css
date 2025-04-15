@@ -280,7 +280,6 @@ a:hover {
     margin-bottom: 0;
     overflow: hidden;
     padding: 0;
-    padding-left: 10px;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -780,7 +779,6 @@ p { text-indent: 25px; }
     margin-bottom: 0;
     overflow: hidden;
     padding: 0;
-    padding-left: 10px;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -801,7 +799,7 @@ p { text-indent: 25px; }
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding-top: 5px;
     gap: 20px;
 }
 
@@ -819,8 +817,8 @@ p { text-indent: 25px; }
 .news-widget {
     background: #fff;
     padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-top: 20px;
+
 }
 
 .news-widget h2 {
@@ -877,4 +875,53 @@ p { text-indent: 25px; }
         width: 100%;
         margin-top: 20px;
     }
+}
+
+/* Simple menu styles */
+#nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 0; /* Fix inline-block spacing */
+    border-bottom: 1px solid #eee;
+    padding-left: 50px;
+}
+
+#navcontainer {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#nav li {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-size: 16px; /* Reset font size */
+}
+
+#nav li:not(:first-child):before {
+    content: "";
+    width: 1px;
+    height: 20px;
+    background-color: #999;
+    margin: 0 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#nav a {
+    color: #ff3366;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 2;
+    padding: 5px 0;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    vertical-align: middle;
 }

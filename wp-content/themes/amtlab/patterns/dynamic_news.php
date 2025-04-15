@@ -2,7 +2,6 @@
 <div class="sidecont rightsector">
 	<div class="sidebar sidebar-right">
 <div class="news-widget">
-    <h2><font color="#294c94">Новости</font></h2>
     <div id="news-container">
         <?php
         // Параметры запроса для новостей

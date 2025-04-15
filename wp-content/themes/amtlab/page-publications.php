@@ -4,9 +4,9 @@ Template Name: Публикации
 */
 get_header(); ?>
 
-<br>    
- <h2 class="title">Публикации</h2> <br>
-<br>
+<div class="main-content-wrapper">
+    <div class="main-content">
+
 
 <div class="publications-container">
     <?php
@@ -62,5 +62,10 @@ get_header(); ?>
         </div>
     <?php endforeach; ?>
 </div>
-
+</div>
+    <!-- News Sidebar -->
+    <aside class="news-sidebar">
+        <?php include get_template_directory() . '/patterns/dynamic_news.php'; ?>
+    </aside>
+</div>
 <?php get_footer(); ?>

@@ -1,8 +1,11 @@
 <?php
 /* Template Name: Сотрудники */
-
 get_header();
+?>
+<div class="main-content-wrapper">
+    <div class="main-content">
 
+<?php
 // Запрос на получение сотрудников
 $args = array(
     'post_type' => 'employee',
@@ -40,5 +43,13 @@ else :
 endif;
 
 wp_reset_postdata();
-
+?>
+</div>
+<!-- News Sidebar -->
+<aside class="news-sidebar">
+    <?php include get_template_directory() . '/patterns/dynamic_news.php'; ?>
+</aside>
+</div>
+<?php
 get_footer();
+?>

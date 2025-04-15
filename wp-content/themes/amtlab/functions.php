@@ -2,8 +2,7 @@
 function mytheme_enqueue_styles() {
     // Main theme styles
     wp_enqueue_style('main-style', get_template_directory_uri() . '/css/style.css', array(), '1.0.0');
-    wp_enqueue_style('screen-style', get_template_directory_uri() . '/css/screen.css', array('main-style'), '1.0.0');
-    wp_enqueue_style('style-style', get_template_directory_uri() . '/css/style.css', array('screen-style'), '1.0.0');
+    wp_enqueue_style('style-style', get_template_directory_uri() . '/css/style.css', array('main-style'), '1.0.0');
     
     // Slider styles
     wp_enqueue_style('nivo-slider-style', get_template_directory_uri() . '/css/nivo-slider.css', array('style-style'), '1.0.0');
@@ -15,9 +14,6 @@ function mytheme_enqueue_styles() {
     wp_enqueue_style('publications-style', get_template_directory_uri() . '/css/publications.css', array('style-style'), '1.0.0');
     wp_enqueue_style('news-style', get_template_directory_uri() . '/css/news.css', array('style-style'), '1.0.0');
     wp_enqueue_style('allnews-style', get_template_directory_uri() . '/css/allnews.css', array('style-style'), '1.0.0');
-    
-    // Menu styles
-    wp_enqueue_style('menumatic-style', get_template_directory_uri() . '/css/menu/MenuMatic.css', array('style-style'), '1.0.0');
     
     // Plugin styles
     wp_enqueue_style('nggallery-style', get_template_directory_uri() . '/css/plugins/nggallery.css', array('style-style'), '1.0.0');
@@ -55,8 +51,7 @@ function mytheme_enqueue_scripts() {
     
     // MooTools and Menu scripts
     wp_enqueue_script('mootools-core', get_template_directory_uri() . '/js/menu/mootools-1.2.5-core-yc.js', array(), '1.2.5', true);
-    wp_enqueue_script('menumatic-script', get_template_directory_uri() . '/js/menu/MenuMatic_0.68.3.js', array('mootools-core'), '0.68.3', true);
-    
+ 
     // Media and player scripts
     wp_enqueue_script('jwplayer-script', get_template_directory_uri() . '/js/jwplayer.js', array(), '1.0.0', true);
     
@@ -87,18 +82,6 @@ function mytheme_enqueue_scripts() {
     wp_localize_script('swfobject-script', 'vvqSettings', $vvq_settings);
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_scripts');
-
-// Add inline script for MenuMatic initialization
-function mytheme_add_inline_scripts() {
-    ?>
-    <script type="text/javascript">
-        window.addEvent('domready', function() {
-            var myMenu = new MenuMatic();
-        });
-    </script>
-    <?php
-}
-add_action('wp_footer', 'mytheme_add_inline_scripts');
 
 // Инициализация слайдера
 function mytheme_init_slider() {
