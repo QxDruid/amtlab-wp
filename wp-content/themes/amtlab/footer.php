@@ -1,17 +1,19 @@
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            </div> <!-- #content -->
+                        </div> <!-- .postcont -->
+                    </main> <!-- #main-content -->
+                </div> <!-- .site-container -->
+            </div> <!-- #outer-wrapper -->
+        </div> <!-- #wrapper-bg -->
+    </div> <!-- #wrapper -->
 
-    <div class="outer">
+    <footer class="outer">
         <div id="footer">
-            Copyright &copy; <a href="/"><strong>Лаборатория новых материалов и перспективных технологий</strong></a>
-            <center>
+            <p>Copyright &copy; <a href="/"><strong>Лаборатория новых материалов и перспективных технологий</strong></a></p>
+            <p class="footer-contact">
                 <a title="Написать письмо" href="mailto:admin@amtlab.ru">Информационная поддержка</a>
-            </center>
+            </p>
         </div>
-    </div>
+    </footer>
 
     <?php wp_footer(); ?>
 </body>

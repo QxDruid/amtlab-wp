@@ -5,7 +5,6 @@
     gap: 20px;
 }
 
-
 .news-item {
     border-top: 1px solid #ccc;
     padding: 10px 0;
@@ -73,4 +72,45 @@
     line-height: 1; /* Межстрочный интервал для лучшей читаемости */
     text-align: justify; /* Выравнивание текста по ширине */
     word-wrap: break-word; /* Перенос слов, если они длинные */
+}
+
+/* Стили для растягивания новостной колонки */
+.sidecont.rightsector {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.sidebar.sidebar-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-widget {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#news-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#news-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item {
+    flex: 0 0 auto;
+}
+
+.view-all-news {
+    margin-top: auto;
+    padding-bottom: 20px;
 }
