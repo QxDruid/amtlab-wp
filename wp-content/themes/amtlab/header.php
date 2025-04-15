@@ -54,7 +54,7 @@
                     </nav>
                     
                     <!-- Main Content Wrapper -->
-                    <main id="main-content" class="outer">
+                    <main id="main-content">
                         <div class="postcont">
                             <div id="content">	
 		                                                                                                                          
