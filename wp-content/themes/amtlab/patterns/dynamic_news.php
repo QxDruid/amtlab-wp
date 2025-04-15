@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/css/news.css"  type="text/css" />
 <div class="sidecont rightsector">
 	<div class="sidebar sidebar-right">
-<div class="widget widget_sideblog">
+<div class="news-widget">
     <h2><font color="#294c94">Новости</font></h2>
     <div id="news-container">
         <?php
@@ -21,12 +21,11 @@
                 ?>
                 <li class="news-item">
                     <b><font color="#cd5700"><?php echo get_the_date('d.m.Y'); ?></font></b>
-                        <div class="news-content">
-                    
+                    <div class="news-content">
                         <?php if (get_field('news-image')) : ?>
-                        <div class="news-photo">
-                            <img src="<?php the_field('news-image'); ?>"/>
-                        </div>
+                            <div class="news-photo">
+                                <img src="<?php the_field('news-image'); ?>"/>
+                            </div>
                         <?php endif; ?>
                         <div class="full-news-text"><?php the_field('news-text'); ?></div>
                     </div>

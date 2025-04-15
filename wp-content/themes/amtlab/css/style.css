@@ -7,28 +7,169 @@
 	Version: 2.0
 */
 
+/* Base styles */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    color: #533333;
+}
+
+body {
+    line-height: 1.5;
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 75%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    #contentwrap {
+        width: 95%;
+        padding: 0 2.5%;
+    }
+    
+    #navcontainer {
+        width: 95%;
+        padding: 0 2.5%;
+    }
+    
+    .header-text, .header-logo {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    
+    .dynamic_news {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+        min-width: auto;
+    }
+    
+    #content {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 85%;
+    }
+    
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+    
+    #pagemenu li a {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Clearfix */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
 /* LAYOUT */
 
 body {
     background: none repeat scroll 0 0 #D5D7D7;
 }
+
+/* Main layout structure */
+.site-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 #wrapper {
-    background: url("images/wrapper.png"/*tpa=http://lcr.tsu.ru/wp-content/themes/HostingReview/images/wrapper.png*/) repeat-x scroll 0px -20px transparent;
+    background: #E7E8E3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
 #wrapper-bg {
+    flex: 1;
+    padding: 20px 0;
 }
+
 #outer-wrapper {
-	margin-top: 0;
-	color: #FFFFFF;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+#header.outer {
+    background-color: #00C;
+    margin-bottom: 0;
+}
+
+#navcontainer {
+    background-color: white;
+    margin-bottom: 0;
+}
+
 #contentwrap {
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 0 0 5px 5px;
--moz-border-radius: 0 0 5px 5px;
-    margin: 0;
+    -moz-border-radius: 0 0 5px 5px;
+    margin: 0 auto;
     padding: 0;
-    width: 980px;
+    width: 100%;
+    max-width: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+.postcont {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#content {
+    padding-bottom: 15px;
+    padding-right: 15px;
+    flex: 1;
+    min-width: 0;
+    width: 70%;
+}
+
 #sub-menu 
 { 
    display: none; 
@@ -145,17 +286,15 @@ a:hover {
     padding: 0;
     padding-left: 10px;
     text-shadow: 0 1px 0 #333333;
-    width: 980px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: white;
 }
 #navcontainer .current-cat a {
     background: url("images/tab.png"/*tpa=http://lcr.tsu.ru/wp-content/themes/HostingReview/images/tab.png*/) repeat-x scroll 0 0 transparent;
     color: #333333;
     text-shadow: 0 1px 0 #FFFFFF;
-}
-#content {
-    padding-bottom: 15px;
-    padding-right: 15px;
 }
 pre {
     overflow: auto;
@@ -237,7 +376,8 @@ blockquote {
     padding-left: 9px;
 }
 .post img {
-    max-width: 680px;
+    max-width: 100%;
+    height: auto;
 }
 img.wp-smiley {
     border: medium none;
@@ -623,3 +763,128 @@ h6 {
 	color: #990000;
 }
 p { text-indent: 25px; }
+
+.dynamic_news {
+    width: 30%;
+    min-width: 300px;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.outer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#header.outer {
+    height: 89px;
+    background-color: #00C;
+}
+
+#navcontainer {
+    display: block;
+    margin-bottom: 0;
+    overflow: hidden;
+    padding: 0;
+    padding-left: 10px;
+    text-shadow: 0 1px 0 #333333;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+#footer {
+    color: #333333;
+    font-size: 13px;
+    margin-top: 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* Main content layout */
+.main-content-wrapper {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0; /* Для правильной работы flex */
+}
+
+.news-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* News widget styles */
+.news-widget {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.news-widget h2 {
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.news-photo img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.view-all-news {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.view-all-news a {
+    color: #294c94;
+    text-decoration: none;
+}
+
+.view-all-news a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        width: 95%;
+    }
+    
+    .news-sidebar {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

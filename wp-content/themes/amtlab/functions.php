@@ -1,7 +1,7 @@
 <?php
 function mytheme_enqueue_styles() {
     // Main theme styles
-    wp_enqueue_style('main-style', get_stylesheet_uri(), array(), '1.0.0');
+    wp_enqueue_style('main-style', get_template_directory_uri() . '/css/style.css', array(), '1.0.0');
     wp_enqueue_style('screen-style', get_template_directory_uri() . '/css/screen.css', array('main-style'), '1.0.0');
     wp_enqueue_style('style-style', get_template_directory_uri() . '/css/style.css', array('screen-style'), '1.0.0');
     
