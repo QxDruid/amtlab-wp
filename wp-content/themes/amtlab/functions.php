@@ -35,8 +35,8 @@ function mytheme_enqueue_scripts() {
     wp_register_script('jquery', get_template_directory_uri() . '/js/jquery/jquery.js-ver=1.7.1', array(), '1.7.1', false);
     wp_enqueue_script('jquery');
     
-    // Slider scripts
-    wp_enqueue_script('nivo-slider-script', get_template_directory_uri() . '/js/jquery.nivo.slider.pack.js', array('jquery'), '1.0.0', false);
+    // Slider script
+    wp_enqueue_script('slider-script', get_template_directory_uri() . '/js/slider.js', array('jquery'), '1.0.0', true);
     
     // Shutter reloaded script
     wp_enqueue_script('shutter-script', get_template_directory_uri() . '/js/shutter-reloaded.js-ver=1.3.3', array('jquery'), '1.3.3', true);
@@ -82,39 +82,6 @@ function mytheme_enqueue_scripts() {
     wp_localize_script('swfobject-script', 'vvqSettings', $vvq_settings);
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_scripts');
-
-// Инициализация слайдера
-function mytheme_init_slider() {
-    ?>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            // Инициализация Nivo слайдера
-            if ($('#slider').length) {
-                $('#slider').nivoSlider({
-                    effect: 'fade',
-                    animSpeed: 500,
-                    pauseTime: 3000,
-                    directionNav: true,
-                    controlNav: true,
-                    pauseOnHover: true,
-                    keyboardNav: false,
-                    controlNavThumbs: false,
-                    manualAdvance: false,
-                    prevText: 'Prev',
-                    nextText: 'Next',
-                    randomStart: false,
-                    beforeChange: function(){},
-                    afterChange: function(){},
-                    slideshowEnd: function(){},
-                    lastSlide: function(){},
-                    afterLoad: function(){}
-                });
-            }
-        });
-    </script>
-    <?php
-}
-add_action('wp_footer', 'mytheme_init_slider');
 
 function create_news_post_type() {
     $args = array(

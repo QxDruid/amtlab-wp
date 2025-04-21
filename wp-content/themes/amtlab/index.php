@@ -6,24 +6,31 @@ get_header();  // Подключает шапку темы
 <div class="main-content-wrapper">
     <div class="main-content">
         <!-- Slider Section -->
-        <section id="slider-wrapper">  
-            <div id="slider" class="nivoSlider">
+        <section class="slider-container">
+            <div class="slider">
                 <?php
                 $slides = get_posts(array('post_type' => 'slider', 'numberposts' => -1));
                 foreach ($slides as $slide) {
                     $image = get_field('slider-image', $slide->ID);
                     $link = get_field('slider-link', $slide->ID);
                     if ($image): ?>
-                        <?php if ($link): ?>
-                            <a href="<?php echo esc_url($link); ?>">
+                        <div class="slide">
+                            <?php if ($link): ?>
+                                <a href="<?php echo esc_url($link); ?>">
+                                    <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title($slide->ID)); ?>" />
+                                </a>
+                            <?php else: ?>
                                 <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title($slide->ID)); ?>" />
-                            </a>
-                        <?php else: ?>
-                            <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title($slide->ID)); ?>" />
-                        <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
                     <?php endif;
                 }
                 ?>
+            </div>
+            <div class="slider-controls">
+                <button class="prev-slide" aria-label="Previous slide">❮</button>
+                <div class="slider-dots"></div>
+                <button class="next-slide" aria-label="Next slide">❯</button>
             </div>
         </section>
 
