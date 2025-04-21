@@ -114,3 +114,38 @@
     margin-top: auto;
     padding-bottom: 20px;
 }
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    .sidecont.rightsector {
+        min-height: auto;
+        height: auto;
+    }
+    
+    .news-widget {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .news-content {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .news-widget {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .news-item {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .news-content {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+}
