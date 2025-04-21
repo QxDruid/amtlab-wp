@@ -5,28 +5,39 @@
     padding: 20px;
     align-items: flex-start;
     min-height: auto;
+    position: relative;
 }
 
 .gallery-item {
     flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     height: auto;
-    overflow: hidden;
-    border-radius: 5px;
+    overflow: visible;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
 }
 
 .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     max-height: 400px;
     object-fit: contain;
+    transform-origin: center center;
+    border-radius: 8px;
+}
+
+.gallery-item:hover {
+    z-index: 2;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Media Queries */
