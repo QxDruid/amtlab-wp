@@ -28,50 +28,7 @@ body {
     font-size: 75%;
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
-    #contentwrap {
-        width: 95%;
-        padding: 0 2.5%;
-    }
-    
-    #navcontainer {
-        width: 95%;
-        padding: 0 2.5%;
-    }
-    
-    .header-text, .header-logo {
-        width: 100%;
-        float: none;
-        text-align: center;
-    }
-    
-    .dynamic_news {
-        width: 100%;
-        min-width: auto;
-        margin-left: 0;
-        margin-top: 20px;
-    }
-    
-    #content {
-        flex-direction: column;
-    }
-}
 
-@media screen and (max-width: 480px) {
-    body {
-        font-size: 85%;
-    }
-    
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.5em; }
-    h3 { font-size: 1.2em; }
-    
-    #pagemenu li a {
-        padding: 8px 10px;
-        font-size: 11px;
-    }
-}
 
 /* Clearfix */
 .clearfix:after {
@@ -201,18 +158,6 @@ a:hover {
 #header {
 	height: 89px;
 	background-color: #00C;
-}
-#header h1 {
-    font-family: Arial,Helvetica,Sans-serif;
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    margin-bottom: 0 !important;
-    padding: 0 10px;
-}
-#header h1 a, #header h1 a:visited {
-	color: #ffFFFF;
-	text-decoration: none;
 }
 #header h2 {
     color: #FFFFFF;
@@ -681,20 +626,10 @@ img.wp-smiley {
     margin: 0 10px 10px 0;
     padding: 4px;
 }
-.header-text, .header-logo {
-    float: left;
-}
-
-.header-logo {
-    width: 245px;
-    flex-shrink: 0;
-}
-
 .header-text {
-    width: 600px;
-    padding-left: 20px;
+    width: 70%;
+    padding-left: 5%;
     color: white;
-    font-size: 16px;
     line-height: 1.4;
     transition: all 0.3s ease;
     box-sizing: border-box;
@@ -703,74 +638,44 @@ img.wp-smiley {
     overflow: visible;
 }
 
-/* Адаптивные стили для заголовка */
-@media screen and (max-width: 1200px) {
-    #header.outer {
-        padding: 0 15px;
-    }
-    
-    .header-text {
-        width: 500px;
-        font-size: 15px;
-        line-height: 1.3;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    #header.outer {
-        padding: 0 10px;
-    }
-    
-    .header-text {
-        width: 400px;
-        font-size: 14px;
-        line-height: 1.2;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #header.outer {
-        height: auto;
-        min-height: 89px;
-        padding: 10px;
-    }
-    
-    .header-text {
-        width: 300px;
-        font-size: 13px;
-        line-height: 1.2;
-        padding-left: 10px;
-    }
-    
-    .header-logo {
-        width: 200px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header-text {
-        width: 100%;
-        font-size: 12px;
-        line-height: 1.1;
-        padding: 0 10px;
-        text-align: center;
-    }
-    
-    .header-logo {
-        width: 180px;
-        margin: 0 auto;
-    }
-    
-    #header.outer {
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 .header-part {
     margin-top: 0px !important;
-}
+    display: flex; /* Делаем flex-контейнер */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    gap: 20px; /* Отступ между лого и текстом */
+  }
+  
+
+  .header-text {
+    flex-grow: 1; /* Текст занимает оставшееся пространство */
+    min-width: 0; /* Фикс для переполнения текста */
+  }
+  
+  .header-text h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.3rem; /* Адаптивный размер */
+    line-height: 1;
+    word-break: break-word; /* Перенос длинных слов */
+  }
+  
+  .header-logo {
+    flex-shrink: 0; /* Запрещаем сжатие */
+    width: auto;    /* Ширина по содержимому */
+    height: 100%;   /* Занимает всю высоту родителя */
+  }
+  
+  .header-logo a {
+    display: flex;   /* Делаем ссылку flex-контейнером */
+    align-items: center; /* Центрируем лого по вертикали */
+    height: 100%;    /* Наследует высоту .header-logo */
+  }
+  
+  .logoimg {
+    max-height: 80px; /* Фиксируем максимальную высоту */
+    width: auto;      /* Ширина подстраивается пропорционально */
+    object-fit: contain; /* Гарантируем, что лого не исказится */
+  }
 .clear {
 	clear: both;
 	color: #00CC00;
@@ -848,33 +753,7 @@ p { text-indent: 25px; }
     transition: all 0.3s ease;
 }
 
-/* Media Queries */
-@media screen and (max-width: 1200px) {
-    .dynamic_news {
-        width: 30%;
-        min-width: 280px;
-    }
-}
 
-@media screen and (max-width: 1024px) {
-    .dynamic_news {
-        width: 35%;
-        min-width: 250px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .dynamic_news {
-        width: 100%;
-        min-width: auto;
-        margin-left: 0;
-        margin-top: 20px;
-    }
-    
-    #content {
-        flex-direction: column;
-    }
-}
 
 .outer {
     width: 100%;
@@ -979,18 +858,7 @@ p { text-indent: 25px; }
     text-decoration: underline;
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
-    .main-content-wrapper {
-        flex-direction: column;
-        width: 95%;
-    }
-    
-    .news-sidebar {
-        width: 100%;
-        margin-top: 20px;
-    }
-}
+
 
 /* Simple menu styles */
 #nav {
@@ -1063,50 +931,6 @@ p { text-indent: 25px; }
     font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
-    .mobile-menu-button {
-        display: block;
-    }
-    
-    #nav {
-        display: none;
-        padding-left: 0;
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    #nav.active {
-        display: flex;
-    }
-    
-    #nav li {
-        display: block;
-        text-align: center;
-        margin: 0;
-        border-bottom: 1px solid #eee;
-        width: 100%;
-    }
-    
-    #nav li:not(:first-child):before {
-        display: none;
-    }
-    
-    #nav a {
-        display: block;
-        padding: 15px;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header-text {
-        font-size: 14px;
-    }
-    
-    .header-logo {
-        max-width: 200px;
-    }
-}
 
 /* Contact Page Styles */
 
@@ -1161,30 +985,6 @@ p { text-indent: 25px; }
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .contact-container {
-        padding-left: 20px;
-    }
-    
-    .contact-info {
-        flex-direction: column;
-    }
-    
-    .contact-block {
-        width: 90%;
-    }
-    
-    .map-wrapper {
-        height: 350px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .map-wrapper {
-        height: 300px;
-    }
-}
 
 /* Slider Styles */
 .slider-container {
@@ -1260,25 +1060,6 @@ p { text-indent: 25px; }
     background: rgba(255, 255, 255, 0.9);
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .slider-controls {
-        bottom: 10px;
-    }
-    
-    .prev-slide,
-    .next-slide {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-    
-    .slider-dots .dot {
-        width: 8px;
-        height: 8px;
-    }
-}
-
 .sidecont {
     width: 100%;
     margin: 0;
@@ -1297,7 +1078,51 @@ p { text-indent: 25px; }
 }
 
 /* Media Queries */
+@media screen and (max-width: 1200px) {
+    .dynamic_news {
+        width: 30%;
+        min-width: 280px;
+    }
+    
+  .header-text h1 {
+    margin: 0;
+    font-size: 2.1rem; /* Адаптивный размер */
+    line-height: 1;
+    word-break: break-word; /* Перенос длинных слов */
+  }
+}
+
+@media screen and (max-width: 1024px) {
+    .dynamic_news {
+        width: 35%;
+        min-width: 250px;
+    }
+      
+    .header-text h1 {
+        margin: 0;
+        font-size: clamp(1.5rem, 2vw, 1.5rem); /* Адаптивный размер */
+        word-break: break-word; /* Перенос длинных слов */
+    }
+}
+
 @media screen and (max-width: 768px) {
+        .slider-controls {
+        bottom: 10px;
+    }
+    
+    .prev-slide,
+    .next-slide {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    
+    .slider-dots .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    
     .sidecont {
         flex-direction: column;
         gap: 15px;
@@ -1307,5 +1132,117 @@ p { text-indent: 25px; }
         width: 100%;
         margin-right: 0;
         padding-right: 0;
+    }
+    .header-text h1{
+        line-height: 1.1;
+        text-align: center;
+        font-size: clamp(1.3rem, 2vw, .5rem); 
+    }
+    .header-text{
+        width: 70%;
+    }
+    .contact-container {
+        padding-left: 20px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+    }
+    
+    .contact-block {
+        width: 90%;
+    }
+    
+    .map-wrapper {
+        height: 350px;
+    }
+
+    #nav {
+        display: flex;
+        padding-left: 0;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #nav.active {
+        display: flex;
+    }
+    
+    #nav li {
+        display: block;
+        text-align: center;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+    }
+    
+    #nav li:not(:first-child):before {
+        display: none;
+    }
+    
+    #nav a {
+        display: block;
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    .main-content-wrapper {
+        flex-direction: column;
+        width: 95%;
+    }
+    
+    .news-sidebar {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .dynamic_news {
+        width: 100%;
+        min-width: auto;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    
+    #content {
+        flex-direction: column;
+    }
+
+    
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 85%;
+    }
+    
+    .map-wrapper {
+        height: 300px;
+    }
+
+    .header-text h1{
+        line-height: 1.1;
+        padding: 0 2%;
+        text-align: center;
+        font-size: clamp(1.5rem, 2vw, .5rem); 
+    }
+    .header-text{
+        width: 100%;
+     }
+    .header-logo {
+        display: none;
+    }
+    
+    #header.outer {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+    
+    #pagemenu li a {
+        padding: 8px 10px;
+        font-size: 11px;
     }
 }

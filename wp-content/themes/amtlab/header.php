@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <title>Amtlab</title>
-
 <?php wp_head(); ?>
 </head>
 
@@ -31,14 +30,11 @@
                             </div>
                             <div class="header-text">						
                                 <h1>
-                                    <a href="<?php echo home_url('/'); ?>">
                                         Лаборатория новых материалов и перспективных технологий СФТИ ТГУ
-                                    </a>
                                 </h1>
                             </div>	
                         </div>
                     </header>
-                    
                     <!-- Navigation -->
                     <nav class="outer">
                         <div id="navcontainer">
@@ -58,4 +54,4 @@
                         <div class="postcont">
                             <div id="content">	
 		                                                                                                                          
-        	
+        	<!-- Подключаем скрипт в конце body -->

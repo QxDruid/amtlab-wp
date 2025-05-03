@@ -80,6 +80,9 @@ function mytheme_enqueue_scripts() {
         'expressinstall' => get_template_directory_uri() . '/js/expressinstall.swf'
     );
     wp_localize_script('swfobject-script', 'vvqSettings', $vvq_settings);
+
+    // Подключаем скрипт мобильного меню
+    wp_enqueue_script('mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_scripts');
 
